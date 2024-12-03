@@ -1,5 +1,10 @@
 export default function Cart() {
     
+    let grandTotal = 0;
+    for (const item of props.getCart) {
+        grandTotal += item.quantity * item.flowerPrice;
+    }
+
     return (
         <div className="table-container">
             <h4 className="card-title">Cart</h4>
