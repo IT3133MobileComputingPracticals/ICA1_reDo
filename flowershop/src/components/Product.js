@@ -1,8 +1,24 @@
 import '../assets/CSS/layout.css';
 import {flowers} from './FlowerDB'
+import {useState} from 'react';
 
 export default function Product(){
-    
+    const[inputValue,setInputValue]=useState();
+    const[cart,setCart]=useState([]);
+
+    const addCart = (flowerName,flowerPrice, quantity)=>{
+        const item = {
+            flowerName: flowerName,
+            flowerPrice:flowerPrice,
+            quantity: parseInt(quantity),
+        };
+
+        const updatedCart = [...cart, item];
+        setCart(updatedCart);
+        props.setCart(updatedCart); 
+    }
+
+
     return(
         flowers.map(flower=>
             <div className="grid-item">
